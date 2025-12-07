@@ -20,3 +20,25 @@ export interface GeneratedEmail {
   subject: string;
   body: string;
 }
+
+export interface BulkLead {
+  id: string;
+  recipientName: string;
+  recipientEmail?: string;
+  recipientCompany: string;
+  recipientWebsite?: string;
+}
+
+export interface BulkEmailJob {
+  lead: BulkLead;
+  status: 'pending' | 'processing' | 'completed' | 'error';
+  result?: GeneratedEmail;
+  error?: string;
+}
+
+export interface SenderStrategyData {
+  senderName: string;
+  senderPortfolio: string;
+  tone: ToneType;
+  specificFocus: string;
+}
